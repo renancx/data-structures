@@ -17,3 +17,16 @@ array.insert(2,'Igor') #insere na posicao informada
 
 print('\n-> Array atual:')
 print(array)
+
+#ordenacao
+numeros = [-2, 5, -9, 1, 7, 0]
+numeros.sort()
+print(f'\n-> Numeros ordenados: {numeros}')
+numeros.reverse()
+print(f'-> Numeros em reverso: {numeros}')
+
+letras = ['B','D','A','E','C']
+letras.sort()
+print(f'\n-> Letras ordenadas: {letras}')
+letras.reverse()
+print(f'-> Letras em reverso: {letras}')
