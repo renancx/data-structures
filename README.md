@@ -1,2 +1,2 @@
 # data-structures
-Repositório para aprender e praticar sobre a Estrutura de Dados
+Repositório para aprender Estrutura de Dados em C++
