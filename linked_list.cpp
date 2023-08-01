@@ -19,6 +19,16 @@ void insert(int x){
     head = temp; //head will point to the new node
 }
 
+void print(){
+    node *temp = head;
+    std::cout << "List is: ";
+    while(temp != NULL){
+        std::cout << temp->valor << " ";
+        temp = temp->next;
+    }
+    std::cout << std::endl;
+}
+
 int main(){
     head = NULL; //empty list
     std::cout  << head << " <- Endereco que o 'head' esta apontando quando a lista esta vazia\n"<< std::endl; //a lista está vazia, então o endereço é 0
@@ -53,5 +63,12 @@ int main(){
     std::cout << teste->next << " <- Endereco do proximo elemento (NULL, pq ele eh o ultimo agora) \n" << std::endl; //endereço do próximo nó (NULL)
 
     std::cout << renan->next << " <- Endereco que o 'renan' esta apontando agora"<< std::endl; //endereço do nó teste
+
+    std::cout << "============================" << std::endl;
+    insert(30);
+    insert(40);
+    insert(50);
+    insert(60);
+    print();
 
 }
