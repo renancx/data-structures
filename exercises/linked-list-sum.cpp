@@ -1,5 +1,7 @@
 #include <iostream>
 
+//https://structy.net/problems/sum-list
+
 struct node {
     int value;
     node *next;
