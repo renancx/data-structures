@@ -12,6 +12,26 @@ struct node {
 node *head;
 node *tail;
 
+void addNode(int x){
+    node *temp = new node;
+
+    temp->value=x;
+    temp->next=nullptr;
+    temp->prev=tail;
+
+    tail->next=temp;
+    tail=temp;
+}
+
+void printForward(){
+    node *temp1 = head;
+    std::cout << "List is: ";
+    while(temp1!=nullptr){
+        std::cout << temp1->value << " ";
+        temp1 = temp1->next;
+    }
+}
+
 int main(){
     
     head = nullptr;
@@ -41,7 +61,17 @@ int main(){
     std::cout << "head->next: " << head->next->value << std::endl;
     std::cout << "tail->prev: " << tail->prev->value << std::endl;
 
-    delete first;
-    delete second;
+    std::cout << "\n------------------" << std::endl;
+
+    addNode(6);
+    addNode(7);
+
+    std::cout << "head: " << head->value << std::endl;
+    std::cout << "tail: " << tail->value << std::endl;
+
+    std::cout << "head->next: " << head->next->value << std::endl;
+    std::cout << "tail->prev: " << tail->prev->value << std::endl;
+
+    printForward();
 
 }
