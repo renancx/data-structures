@@ -32,6 +32,16 @@ void printForward(){
     }
 }
 
+void printBackward(){
+    node *temp2 = tail;
+    std::cout << "List backwards is: ";
+    while(temp2!=nullptr){
+        std::cout << temp2->value << " ";
+        temp2 = temp2->prev;
+    }
+    
+}
+
 int main(){
     
     head = nullptr;
@@ -72,6 +82,9 @@ int main(){
     std::cout << "head->next: " << head->next->value << std::endl;
     std::cout << "tail->prev: " << tail->prev->value << std::endl;
 
+    std::cout << "\n------------------" << std::endl;
     printForward();
+    std::cout << "\n";
+    printBackward();
 
 }
