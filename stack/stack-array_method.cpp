@@ -13,6 +13,14 @@ void push(int x){
     stack[top] = x;
 }
 
+void pop(){
+    if(top == -1){
+        std::cout << "Stack is already empty!" << std::endl;
+        return;
+    }
+    top--;
+}
+
 int main(){
 
 }
