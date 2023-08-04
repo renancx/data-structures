@@ -4,7 +4,7 @@
 int stack[MAX_SIZE];
 int top = -1; //empty stack when the top = -1
 
-void Push(int x){
+void push(int x){
     if(top == MAX_SIZE -1){
         std::cout << "Stack Overflow!" << std::endl;
         return; //se der overflow ele vai retornar agora e o push nao vai ocorrer
@@ -13,7 +13,7 @@ void Push(int x){
     stack[top] = x;
 }
 
-void Pop(){
+void pop(){
     if(top == -1){
         std::cout << "Stack is already empty!" << std::endl;
         return;
@@ -21,19 +21,31 @@ void Pop(){
     top--;
 }
 
-int Top(){
+int showTop(){
     return stack[top];
 }
 
+void print(){
+    std::cout << "Stack is: ";
+    for(int i=0; i<=top; i++){
+        std::cout << stack[i] << " ";
+    }
+}
+
 int main(){
-    Push(2);
-    Push(5);
-    Push(10);
-    Push(12);
-    Pop();
-    Push(15);
+    push(2);
+    push(5);
+    push(10);
+    push(12);
+    pop();
+    push(15);
 
-    std::cout << "Top: " << Top() << std::endl;
+    print();
+    std::cout << "\nTop: " << showTop() << std::endl;
 
-    return 0;
+    push(9);
+    push(3);
+
+    print();
+    std::cout << "\nTop: " << showTop() << std::endl;
 }
