@@ -10,9 +10,38 @@ struct node {
 };
 
 node *head;
+node *tail;
 
 int main(){
+    
+    head = nullptr;
+    tail = nullptr;
+    
+    node *first = new node;
 
-    head = NULL;
+    first->value=4;
+    first->next=nullptr;
+    first->prev=nullptr;
+
+    head = first;
+    tail = first;
+
+    node *second = new node;
+
+    second->value=5;
+    second->next=nullptr;
+    second->prev=first;
+
+    first->next=second;
+    tail=second;
+
+    std::cout << "head: " << head->value << std::endl;
+    std::cout << "tail: " << tail->value << std::endl;
+
+    std::cout << "head->next: " << head->next->value << std::endl;
+    std::cout << "tail->prev: " << tail->prev->value << std::endl;
+
+    delete first;
+    delete second;
 
 }
