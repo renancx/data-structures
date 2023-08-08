@@ -51,8 +51,24 @@ bool search(Node* root, int data){
     else return search(root->right, data);
 }
 
+void print(Node* root){
+    if(root==nullptr) return;
+    print(root->left);
+    std::cout << root->data << " ";
+    print(root->right);
+}
+
 int main(){
     root = nullptr;
 
+    root = insert(root, 15);
+    root = insert(root, 6);
+    root = insert(root, 23);
+    root = insert(root, 25);
+    root = insert(root, 2);
+    root = insert(root, 1);
+    root = insert(root, 4);
 
+    print(root);
+    
 }
