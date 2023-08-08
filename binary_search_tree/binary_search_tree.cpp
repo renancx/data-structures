@@ -44,7 +44,12 @@ Node* insert(Node *root, int data){
     return root;
 }
 
-
+bool search(Node* root, int data){
+    if(root==nullptr) return false;
+    else if(root->data == data) return true;
+    else if(data <= root->data) return search(root->left, data);
+    else return search(root->right, data);
+}
 
 int main(){
     root = nullptr;
