@@ -44,6 +44,46 @@ Node* insert(Node *root, int data){
     return root;
 }
 
+int findMin(Node* root){
+    if(root==nullptr){
+        std::cout << "Error: Tree is empty" << std::endl;
+        return -1;
+    }
+    else if(root->left==nullptr) return root->data;
+    return findMin(root->left);
+}
+
+Node* remove(Node* root, int data){
+    if(root==nullptr) return root;
+    else if(data < root->data) root->left = remove(root->left, data);
+    else if(data > root->data) root->right = remove(root->right, data);
+    else{
+        //case 1: no child
+        if(root->left==nullptr && root->right==nullptr){
+            delete root;
+            root = nullptr;
+        }
+        //case 2: one child
+        else if(root->left==nullptr){
+            Node* temp = root;
+            root = root->right;
+            delete temp;
+        }
+        else if(root->right==nullptr){
+            Node* temp = root;
+            root = root->left;
+            delete temp;
+        }
+        //case 3: two children
+        else{
+            int temp = findMin(root->right);
+            root->data = temp;
+            root->right = remove(root->right, temp); 
+        }
+    }
+    return root;
+}
+
 bool search(Node* root, int data){
     if(root==nullptr) return false;
     else if(root->data == data) return true;
@@ -51,27 +91,19 @@ bool search(Node* root, int data){
     else return search(root->right, data);
 }
 
-int findMin(Node* root){
-    if(root==nullptr){
-        std::cout << "Tree is empty!" << std::endl;
-        return -1;
-    }
-    while (root->left!=nullptr){
-        root = root->left;
-    }
-    return root->data;
-}
-
 int findMax(Node* root){
     if(root==nullptr){
-        std::cout << "Tree is empty!" << std::endl;
+        std::cout << "Error: Tree is empty" << std::endl;
         return -1;
     }
-    while(root->right!=nullptr){
-        root = root->right;
-    }
-    return root->data;
-}    
+    else if(root->right==nullptr) return root->data;
+    return findMax(root->right);
+}
+
+int findHeight(Node* root){
+    if(root==nullptr) return -1;
+    return std::max(findHeight(root->left), findHeight(root->right)) + 1;
+}
 
 void print(Node* root){
     if(root==nullptr) return;
@@ -96,5 +128,14 @@ int main(){
     std::cout << std::endl;
 
     std::cout << "Min: " << findMin(root) << std::endl;
+    std::cout << "Max: " << findMax(root) << std::endl;
+
+    root = remove(root, 6);
+    root = remove(root, 25);
+
+    print(root);
+
+
+    std::cout << "\nMin: " << findMin(root) << std::endl;
     std::cout << "Max: " << findMax(root) << std::endl;
 }
