@@ -58,12 +58,12 @@ Node* remove(Node* root, int data){
     else if(data < root->data) root->left = remove(root->left, data);
     else if(data > root->data) root->right = remove(root->right, data);
     else{
-        //case 1: no child
+        //no child
         if(root->left==nullptr && root->right==nullptr){
             delete root;
             root = nullptr;
         }
-        //case 2: one child
+        //one child
         else if(root->left==nullptr){
             Node* temp = root;
             root = root->right;
@@ -74,7 +74,7 @@ Node* remove(Node* root, int data){
             root = root->left;
             delete temp;
         }
-        //case 3: two children
+        //two children
         else{
             int temp = findMin(root->right);
             root->data = temp;
