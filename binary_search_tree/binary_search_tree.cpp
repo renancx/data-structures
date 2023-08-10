@@ -51,6 +51,28 @@ bool search(Node* root, int data){
     else return search(root->right, data);
 }
 
+int findMin(Node* root){
+    if(root==nullptr){
+        std::cout << "Tree is empty!" << std::endl;
+        return -1;
+    }
+    while (root->left!=nullptr){
+        root = root->left;
+    }
+    return root->data;
+}
+
+int findMax(Node* root){
+    if(root==nullptr){
+        std::cout << "Tree is empty!" << std::endl;
+        return -1;
+    }
+    while(root->right!=nullptr){
+        root = root->right;
+    }
+    return root->data;
+}    
+
 void print(Node* root){
     if(root==nullptr) return;
     print(root->left);
@@ -71,4 +93,8 @@ int main(){
 
     print(root);
     
+    std::cout << std::endl;
+
+    std::cout << "Min: " << findMin(root) << std::endl;
+    std::cout << "Max: " << findMax(root) << std::endl;
 }
