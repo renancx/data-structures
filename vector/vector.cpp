@@ -1,13 +1,12 @@
 #include <iostream>
 #include <vector>
 
-void printVector(std::vector<int> v1){
-    std::cout << "[ "; 
-    for(int i = 0; i < v1.size(); i++){
-        std::cout << v1[i] << " ";
+void printVector(const std::vector<int>& v1) {
+    std::cout << "[ ";
+    for (const int& num : v1) {
+        std::cout << num << " ";
     }
-    std::cout << "]";
-    std::cout << std::endl;
+    std::cout << "]\n";
 }
 
 int main(){
@@ -34,5 +33,13 @@ int main(){
 
     //removing the first element of the vector
     v1.erase(v1.begin());
+    printVector(v1);
+
+    //inserting an element at the nth position
+    v1.insert(v1.begin() + 2, 2);
+    printVector(v1);
+
+    //removing the nth element
+    v1.erase(v1.begin() + 2);
     printVector(v1);
 }
