@@ -1,4 +1,4 @@
-# 📊 Data Structures 🧮
+# 📊 Data Structures
 
 Here, you'll find a collection of code and implementations of fundamental data structures designed to help developers understand and enhance their skills in algorithms, data manipulation, and programming logic.
 
